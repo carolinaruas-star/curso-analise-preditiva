@@ -76,7 +76,3 @@ while executando:
             executando = False
 
     else: print("\n⚠️ Opção inválida! Escolha de 1 a 5")
-    
-
-
-
