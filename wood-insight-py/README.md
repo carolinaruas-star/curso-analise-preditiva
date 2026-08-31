@@ -1,55 +1,81 @@
-# 🌳 Wood SalesInsight PY
+# 🪵 Wood SalesInsight PY
 
-> **Mini-projeto de análise de dados de vendas utilizando Python, Pandas, NumPy e visualização de dados.**
+> **Curso:** Desenvolvimento de IA para Análise Preditiva — Módulo 01
+> **Professor:** Lucas Lima
+> **Aluna:** Ana Carolina Pereira Ruas
 
-## 📌 Sobre o projeto
+---
 
-O **Wood SalesInsight PY** é um mini-projeto desenvolvido para o **Módulo 01 — Desenvolvimento de IA para Análise Preditiva**, com o objetivo de aplicar conceitos fundamentais de **Python e Análise de Dados** em um cenário próximo ao contexto profissional.
+## 📋 Sobre o Projeto
 
-O projeto simula o trabalho de um **Analista de Dados Júnior** responsável por transformar uma base de dados de produtos de madeira em informações úteis para análise de vendas.
+O **Wood SalesInsight PY** é um mini-projeto de análise de dados desenvolvido em Python, simulando o trabalho de uma **Analista de Dados Júnior** responsável por transformar uma base de dados de produtos de madeira em informações úteis para apoiar a tomada de decisão.
 
-O fluxo desenvolvido contempla:
+O projeto foi desenvolvido para o **Módulo 01 — Desenvolvimento de IA para Análise Preditiva**, aplicando conceitos fundamentais de:
+
+* Python;
+* Pandas;
+* NumPy;
+* Matplotlib;
+* Seaborn;
+* análise exploratória de dados;
+* limpeza e transformação de dados;
+* estatística descritiva;
+* programação orientada a objetos.
+
+O fluxo principal do projeto contempla:
 
 ```text
 Carregamento dos dados
         ↓
-Inspeção
+Adequação da base
         ↓
-Criação e adequação das variáveis
+Criação de variáveis sintéticas
         ↓
 Inserção de inconsistências
         ↓
+Inspeção
+        ↓
 Limpeza e tratamento
         ↓
-Transformações
+Conversão USD → BRL
         ↓
-Agregações e segmentação
+Criação de variáveis derivadas
         ↓
-Análise com NumPy
+Agregações
         ↓
-Visualização dos dados
+Segmentação de clientes
         ↓
-Exportação dos resultados
+Análise estatística com NumPy
+        ↓
+Visualização
+        ↓
+Exportação
+        ↓
+Resumo executivo
 ```
 
----
-
-## 🎯 Objetivo
-
-O objetivo principal é desenvolver um analisador de dados capaz de **carregar, limpar, transformar, analisar e visualizar dados de vendas**, utilizando funções reutilizáveis e programação orientada a objetos.
-
-A análise busca responder questões como:
-
-* 📅 Como as vendas se comportam ao longo do tempo?
-* 🌳 Quais tipos de madeira apresentam maior receita?
-* 🌎 Quais regiões apresentam melhor desempenho?
-* 👥 Quais clientes apresentam maior volume de gastos?
-* 📦 Qual é a relação entre quantidade vendida e receita?
-* 📊 Como os resultados podem ser apresentados visualmente para facilitar a tomada de decisão?
+As respostas às perguntas de negócio e os principais insights obtidos na análise estão documentados separadamente em **[DESAFIOS.md](DESAFIOS.md)**.
 
 ---
 
-## 🗃️ Dataset
+# 🎯 Objetivo
+
+O objetivo é desenvolver um analisador capaz de **carregar, limpar, transformar, analisar e visualizar dados de vendas**, utilizando funções reutilizáveis e programação orientada a objetos.
+
+O projeto foi estruturado para permitir análises relacionadas a:
+
+* comportamento das vendas ao longo do tempo;
+* desempenho dos produtos;
+* desempenho por fonte de fornecimento;
+* desempenho por região;
+* segmentação de clientes;
+* relação entre quantidade e receita;
+* estatística descritiva;
+* visualização de indicadores.
+
+---
+
+# 🗃️ Dataset
 
 O projeto utiliza como base o **Wood Prices Dataset**, disponível no Kaggle:
 
@@ -57,55 +83,89 @@ O projeto utiliza como base o **Wood Prices Dataset**, disponível no Kaggle:
 
 O dataset original possui:
 
-* **1.000 registros**
-* **8 colunas**
+* **1.000 registros**;
+* **8 colunas**.
 
 Entre as informações disponíveis estão:
 
-* Tipo de madeira;
-* País;
-* Preço;
-* Fonte de fornecimento;
-* Avaliação de qualidade;
-* Popularidade;
-* Nível de demanda;
-* Disponibilidade.
+* tipo de madeira;
+* país;
+* preço em USD;
+* fonte de fornecimento;
+* avaliação de qualidade;
+* popularidade;
+* nível de demanda;
+* disponibilidade.
 
-Como o dataset original não possui todas as colunas necessárias ao desafio, algumas variáveis foram criadas ou adaptadas a partir das informações existentes.
-
-### 🔄 Adaptação da base
-
-| Requisito do projeto | Origem/implementação                          |
-| -------------------- | --------------------------------------------- |
-| Data                 | Gerada a partir do nível de demanda           |
-| Produto              | `Wood Type`                                   |
-| Categoria            | `Supply Source`                               |
-| Quantidade           | Gerada a partir de demanda e disponibilidade  |
-| Preço unitário       | `Price (USD)` convertido para BRL             |
-| Região               | `Country`                                     |
-| Cliente              | Identificação sintética criada para a análise |
-
-A identificação dos clientes é **sintética**, criada exclusivamente para possibilitar a etapa de segmentação exigida pelo projeto.
+Como o dataset original não possui todas as variáveis necessárias para o desafio, algumas colunas foram criadas ou adaptadas.
 
 ---
 
-## 🧹 Tratamento e limpeza dos dados
+# 🔄 Adaptação da Base
 
-Para demonstrar as etapas de tratamento de dados exigidas pelo projeto, foram inseridas artificialmente algumas inconsistências na base original.
+| Requisito      | Origem / Implementação                       |
+| -------------- | -------------------------------------------- |
+| Data           | Gerada a partir do nível de demanda          |
+| Produto        | `Wood Type`                                  |
+| Categoria      | `Supply Source`                              |
+| Quantidade     | Gerada a partir de demanda e disponibilidade |
+| Preço unitário | `Price (USD)` convertido para BRL            |
+| Região         | `Country`                                    |
+| Cliente        | Identificação sintética                      |
 
-Foram simulados problemas como:
+## 📅 Data
+
+A coluna `Data` é criada com base no nível de demanda, utilizando uma regra de sazonalidade.
+
+São considerados os anos de **2023 e 2024**.
+
+## 📦 Quantidade
+
+A quantidade é gerada considerando:
+
+* nível de demanda;
+* disponibilidade.
+
+Dessa forma, a variável é construída artificialmente para possibilitar as análises de volume de vendas.
+
+## 👥 Clientes
+
+Como o dataset original não possui uma identificação de cliente, foram criados **50 clientes sintéticos**, identificados como:
+
+```text
+Cliente_001
+Cliente_002
+...
+Cliente_050
+```
+
+Os identificadores são utilizados exclusivamente para possibilitar a segmentação exigida pelo projeto.
+
+---
+
+# 🧹 Tratamento e Limpeza dos Dados
+
+Para demonstrar as etapas de tratamento de dados, foram inseridas artificialmente inconsistências na base.
+
+A função:
+
+```python
+sujar_dataset()
+```
+
+simula problemas como:
 
 * valores nulos;
 * datas inválidas;
-* espaços extras em textos;
+* espaços extras;
 * caracteres especiais;
 * inconsistências na padronização dos países.
 
-Depois disso, foi desenvolvido um processo de limpeza para corrigir os problemas identificados.
+---
 
-### 🔎 Inspeção
+## 🔎 Inspeção
 
-A inspeção inicial utiliza recursos como:
+A inspeção inicial utiliza operações como:
 
 ```python
 df.shape
@@ -114,52 +174,108 @@ df.isnull().sum()
 df.head()
 ```
 
-permitindo verificar a estrutura, os tipos de dados, os valores ausentes e os primeiros registros.
+Essas operações permitem verificar:
 
-### 🧽 Limpeza
+* quantidade de registros;
+* quantidade de colunas;
+* tipos de dados;
+* valores ausentes;
+* estrutura inicial da base.
 
-A função `limpar_dados()` realiza, entre outras etapas:
+---
 
-* remoção de espaços extras;
-* conversão de datas utilizando `pd.to_datetime()`;
-* tratamento de datas inválidas;
-* remoção de registros com valores ausentes em colunas críticas;
-* conversão de tipos numéricos;
-* padronização textual;
-* tratamento de valores inválidos.
+## 🧽 Limpeza
 
-Também é gerado um **relatório de limpeza**, permitindo acompanhar a quantidade de registros antes e depois do tratamento.
+A função:
 
-No fluxo executado no notebook:
+```python
+limpar_dados()
+```
+
+realiza etapas como:
+
+### Remoção de espaços
+
+```python
+.str.strip()
+```
+
+### Conversão de datas
+
+```python
+pd.to_datetime(..., errors="coerce")
+```
+
+### Conversão numérica
+
+```python
+pd.to_numeric()
+```
+
+### Padronização textual
+
+A limpeza utiliza expressões regulares (`re`) para tratar caracteres especiais, espaços e padronização dos países.
+
+### Tratamento de valores ausentes
+
+São removidos registros com valores ausentes em campos críticos.
+
+Na etapa demonstrativa de limpeza:
 
 ```text
-Registros iniciais: 1000
-Registros removidos: 287
-Registros finais: 713
+Registros iniciais:       1000
+Registros removidos:       287
+Registros finais:          713
 ```
 
 ---
 
-## 🔄 Transformação dos dados
+# 💱 Conversão USD → BRL
 
-Após a limpeza, novas variáveis são criadas para possibilitar análises mais completas.
+O preço original do dataset está em dólares americanos.
 
-### 💰 Receita Total
-
-A receita é calculada de forma vetorizada:
+Para realizar as análises financeiras em reais, foi utilizada a taxa:
 
 ```python
-df["Receita Total"] = df["Quantidade"] * df["Preço (BRL)"]
+TAXA_USD_BRL = 5.70
 ```
 
-### 📅 Variáveis temporais
+A conversão é realizada de forma vetorizada:
+
+```python
+df["Preço (BRL)"] = (
+    df["Preço (USD)"] * TAXA_USD_BRL
+).round(2)
+```
+
+Após a conversão, a coluna `Preço (USD)` é removida.
+
+> A taxa utilizada é uma premissa definida no projeto e pode ser alterada conforme a necessidade da análise.
+
+---
+
+# 🔄 Transformação dos Dados
+
+## 💰 Receita Total
+
+A receita é calculada por:
+
+```python
+df["Receita Total"] = (
+    df["Quantidade"] * df["Preço (BRL)"]
+)
+```
+
+---
+
+## 📅 Variáveis Temporais
 
 A partir da coluna `Data`, são extraídos:
 
-* mês;
-* nome do mês;
-* trimestre;
-* ano.
+* `Mês`;
+* `Mês Nome`;
+* `Trimestre`;
+* `Ano`.
 
 Exemplo:
 
@@ -169,48 +285,85 @@ df["Ano"] = df["Data"].dt.year
 df["Trimestre"] = df["Data"].dt.quarter
 ```
 
-### 💵 Faixa de Receita
+---
 
-A variável `Faixa de Receita` é criada utilizando `np.select()`, classificando as transações em:
+## 💵 Faixa de Receita
 
-* **Baixa**
-* **Média**
-* **Alta**
+A variável `Faixa de Receita` é criada utilizando `np.select()`.
+
+As transações são classificadas em:
+
+* **Baixa**;
+* **Média**;
+* **Alta**.
+
+Essa variável permanece disponível no DataFrame derivado para análises específicas.
 
 ---
 
-## 📊 Agregações e segmentação
+## 📦 Perfil de Volume
 
-Foram utilizadas operações de agrupamento com `groupby()` para analisar os dados por diferentes dimensões.
+Também é criada uma classificação de volume:
 
-Entre elas:
+```python
+df["Perfil de Volume"] = df["Quantidade"].apply(
+    lambda q:
+        "Alto Volume"
+        if q > 50
+        else "Baixo Volume"
+)
+```
+
+---
+
+# 📊 Agregações
+
+As análises utilizam operações de agrupamento com `groupby()`.
+
+São calculadas métricas por diferentes dimensões, incluindo:
 
 * mês;
-* produto/tipo de madeira;
-* faixa de receita;
-* país/região.
+* trimestre;
+* tipo de madeira;
+* fonte de fornecimento;
+* país;
+* cliente;
+* faixa de receita.
 
-Também foi criada uma segmentação simples dos clientes em:
+Entre as métricas calculadas estão:
 
-🥉 **Bronze**
-🥈 **Prata**
-🥇 **Ouro**
-
-A classificação utiliza uma função `lambda` aplicada ao gasto total de cada cliente.
+* receita total;
+* quantidade vendida;
+* número de vendas;
+* ticket médio.
 
 ---
 
-## 🔢 Análise com NumPy
+# 👥 Segmentação de Clientes
 
-O projeto também utiliza **NumPy** para realizar operações vetorizadas sobre os dados.
+Os clientes são segmentados de acordo com o gasto total acumulado.
 
-Uma coluna de receita é convertida para um array:
+Foram utilizadas três categorias:
+
+| Segmento  | Critério                            |
+| --------- | ----------------------------------- |
+| 🥇 Ouro   | Gasto acima de R$ 550.000           |
+| 🥈 Prata  | Gasto entre R$ 460.000 e R$ 550.000 |
+| 🥉 Bronze | Gasto abaixo de R$ 460.000          |
+
+As faixas foram recalibradas considerando a escala real dos dados, pois os valores originalmente sugeridos no desafio — R$ 5.000 e R$ 15.000 — classificariam praticamente toda a carteira como Ouro.
+
+---
+
+# 🔢 Análise com NumPy
+
+A receita é convertida para um array NumPy:
 
 ```python
 receitas = df["Receita Total"].to_numpy()
 ```
 
-A partir desse array são calculadas estatísticas como:
+São utilizadas operações como:
 
 ```python
 np.mean()
@@ -219,71 +372,94 @@ np.std()
 np.sum()
 np.min()
 np.max()
+np.percentile()
 ```
 
-Também são utilizadas:
+Também são demonstrados:
 
 * filtragem booleana;
 * operações vetorizadas;
 * broadcasting;
-* normalização dos valores.
-
-A proposta é demonstrar como operações sobre arrays podem ser realizadas sem a necessidade de percorrer os dados manualmente com laços.
+* normalização;
+* cálculo de percentis.
 
 ---
 
-## 📈 Visualização dos dados
+# 📈 Visualizações
 
-Foram desenvolvidas quatro visualizações principais, conforme os requisitos do projeto.
+O projeto utiliza **Matplotlib** e **Seaborn** para produzir visualizações analíticas.
 
-### 📉 1. Gráfico de linha
+## Gráficos principais
 
-Utilizado para analisar a **receita ao longo dos meses**.
+### 📉 Receita por mês
 
-### 📊 2. Gráfico de barras
-
-Utilizado para comparar os **produtos/tipos de madeira com maior receita**.
-
-### 🔵 3. Gráfico de dispersão
-
-Relaciona:
+Gráfico de linha para análise temporal da receita.
 
 ```text
-Quantidade vendida × Receita
+outputs/graficos/receita_por_mes.png
 ```
 
-permitindo observar a relação entre volume de vendas e faturamento.
+### 📊 Receita por trimestre
 
-### 🖼️ 4. Painel 2×2
+Gráfico de barras para comparação dos trimestres.
 
-Foi criado um painel com quatro gráficos utilizando subplots:
-
-```python
-fig, axes = plt.subplots(2, 2, figsize=(16, 10))
+```text
+outputs/graficos/receita_por_trimestre.png
 ```
 
-O painel utiliza também `fig.suptitle()` para apresentar um título geral.
+### 🌳 Top 5 produtos
 
-As figuras são customizadas com:
+Gráfico de barras com os cinco produtos de maior receita.
 
-* títulos;
-* rótulos dos eixos;
-* legendas;
-* paleta de cores;
-* tamanho adequado;
-* organização do layout.
+```text
+outputs/graficos/top_produtos.png
+```
 
-As visualizações são exportadas em formato PNG.
+### 🔵 Quantidade × Receita
+
+Gráfico de dispersão relacionando quantidade vendida e receita.
+
+```text
+outputs/graficos/quantidade_vs_receita.png
+```
+
+### 🖼️ Painel resumo
+
+Painel consolidado com as principais visualizações.
+
+```text
+outputs/graficos/painel_resumo.png
+```
 
 ---
 
-## 🧩 Organização do código
+# 📊 Visualizações Bônus
 
-O projeto utiliza diferentes conceitos de programação em Python para organizar o fluxo de análise.
+Também foram implementadas visualizações adicionais.
 
-### Funções reutilizáveis
+## 📦 Boxplot
 
-Foram criadas funções específicas para diferentes etapas do processo, como:
+Distribuição da receita por tipo de madeira.
+
+```text
+outputs/graficos/boxplot_receita.png
+```
+
+## 🔥 Heatmap
+
+Receita média por tipo de madeira e mês.
+
+```text
+outputs/graficos/heatmap_receita.png
+```
+
+---
+
+# 🧩 Organização do Código
+
+O projeto utiliza funções reutilizáveis para separar as responsabilidades do fluxo.
+
+Entre elas:
 
 ```python
 gerar_data()
@@ -292,24 +468,42 @@ sujar_dataset()
 inspecionar_dados()
 limpar_dados()
 criar_colunas_derivadas()
+calcular_metricas()
+segmentar_clientes()
+calcular_estatisticas_numpy()
+gerar_visualizacoes()
+exportar_resultados()
 ```
 
-As funções possuem parâmetros e retornos de acordo com sua finalidade.
+---
 
-### Função como argumento
+# 🔁 Função como Argumento
 
-O projeto também demonstra o uso de uma função que recebe outra função como argumento:
+O projeto demonstra o uso de uma função que recebe outra função como argumento:
 
 ```python
-def processar_coluna(df, coluna, funcao_transformacao, nome_saida=None):
+def processar_coluna(
+    df,
+    coluna,
+    funcao_transformacao,
+    nome_saida=None
+):
     ...
 ```
 
 Essa abordagem permite reutilizar uma mesma estrutura para diferentes transformações.
 
-### Programação Orientada a Objetos
+Exemplo:
 
-O fluxo também foi organizado na classe:
+```python
+lambda x: round(x / 1000, 2)
+```
+
+---
+
+# 🏗️ Programação Orientada a Objetos
+
+O fluxo principal foi organizado na classe:
 
 ```python
 AnalisadorDeVendas
@@ -320,9 +514,9 @@ A classe possui:
 * construtor `__init__`;
 * atributos;
 * métodos;
-* utilização de `self`.
+* `self`.
 
-Entre as responsabilidades estão etapas como:
+Entre suas responsabilidades estão:
 
 ```text
 Carregar
@@ -336,123 +530,171 @@ Exportar resultados
 
 ---
 
-## 💾 Exportação dos resultados
+# 🧬 Bônus B01 — Herança
 
-Os resultados da análise são exportados para formatos estruturados.
-
-### CSV
-
-Os dados processados podem ser exportados utilizando:
+Foi criada a classe:
 
 ```python
-df.to_csv(...)
+AnalisadorComProjecao
 ```
 
-### JSON
-
-Os resultados também são armazenados em JSON utilizando:
+que herda de:
 
 ```python
-json.dump(...)
+AnalisadorDeVendas
 ```
 
-O arquivo JSON é posteriormente lido novamente com:
+A implementação utiliza:
 
 ```python
-json.load(...)
+super()
 ```
 
-para conferência dos dados gravados.
+para reaproveitar o comportamento da classe principal.
 
 ---
 
-## 🛠️ Tecnologias e bibliotecas
+# 📈 Bônus B02 — Projeção
 
-### Linguagem
+A classe derivada implementa uma projeção simples de receita utilizando **média móvel**.
 
-* 🐍 Python 3
+A função permite projetar meses futuros:
 
-### Bibliotecas
+```python
+projetar(n_meses=3)
+```
 
-* **Pandas** — manipulação, limpeza e análise dos dados;
-* **NumPy** — operações vetorizadas, agregações e broadcasting;
-* **Matplotlib** — criação e exportação de gráficos;
-* **Seaborn** — visualizações estatísticas;
-* **JSON** — exportação e leitura dos resultados;
-* **re** — padronização e limpeza de textos;
-* **datetime** — geração e tratamento de datas;
-* **random** — geração controlada de dados sintéticos.
+O gráfico correspondente é salvo em:
 
----
+```text
+outputs/graficos/projecao_receita.png
+```
 
-## 📚 Conceitos de Python aplicados
-
-Durante o desenvolvimento foram aplicados conceitos como:
-
-* variáveis;
-* estruturas condicionais;
-* funções;
-* parâmetros e retornos;
-* docstrings;
-* funções `lambda`;
-* funções como argumentos;
-* listas e dicionários;
-* compreensão do fluxo de execução;
-* programação orientada a objetos;
-* classes;
-* construtor `__init__`;
-* atributos e métodos;
-* `self`;
-* tratamento e manipulação de arquivos;
-* utilização de bibliotecas.
+> A projeção é uma técnica simples de tendência e não representa um modelo de Machine Learning.
 
 ---
 
-## 📊 Conceitos de análise de dados aplicados
+# 🔀 Bônus B03 — Pivot Table
 
-O projeto também contempla:
+Foi criada uma tabela dinâmica relacionando:
 
-* carregamento de CSV;
-* inspeção de DataFrames;
-* análise de valores nulos;
-* limpeza de dados;
-* tratamento de datas;
-* expressões regulares;
-* transformação de variáveis;
-* criação de colunas derivadas;
-* operações vetorizadas;
-* `np.select`;
-* `groupby`;
-* agregações;
-* segmentação de clientes;
-* estatística descritiva;
-* análise exploratória;
-* visualização de dados;
-* exportação de resultados.
+```text
+Faixa de Receita × Mês
+```
+
+utilizando:
+
+```python
+pivot_table()
+```
+
+Resultado:
+
+```text
+outputs/pivot_faixa_mes.csv
+```
 
 ---
 
-## ▶️ Como executar o projeto
+# 📐 Bônus B05 — Percentis
 
-### 1. Clone o repositório
+Foram calculados percentis utilizando:
+
+```python
+np.percentile()
+```
+
+Os principais percentis analisados são:
+
+* P25;
+* P50;
+* P75.
+
+---
+
+# 💾 Exportação dos Resultados
+
+Os resultados são exportados para a pasta:
+
+```text
+outputs/
+```
+
+## CSV
+
+Principais arquivos:
+
+```text
+outputs/metricas_por_mes.csv
+outputs/segmentacao_clientes.csv
+outputs/pivot_faixa_mes.csv
+```
+
+## JSON
+
+As estatísticas gerais são armazenadas em:
+
+```text
+outputs/estatisticas_gerais.json
+```
+
+O arquivo JSON também é lido novamente com:
+
+```python
+json.load()
+```
+
+para conferência da exportação.
+
+---
+
+# 📋 Requisitos Funcionais Implementados
+
+| Requisito | Descrição                                                           | Status |
+| --------- | ------------------------------------------------------------------- | :----: |
+| RF01      | Carregar o dataset de vendas                                        |    ✅   |
+| RF02      | Inspecionar e descrever os dados                                    |    ✅   |
+| RF03      | Limpar e tratar os dados com datetime e regex                       |    ✅   |
+| RF04      | Criar colunas derivadas com transformações condicionais             |    ✅   |
+| RF05      | Calcular métricas agregadas com `groupby` por Fonte de Fornecimento |    ✅   |
+| RF06      | Segmentar clientes por nível de gasto                               |    ✅   |
+| RF07      | Realizar operações numéricas com NumPy                              |    ✅   |
+| RF08      | Criar visualizações com Matplotlib e Seaborn                        |    ✅   |
+
+---
+
+# 📌 Categoria da Análise
+
+A categoria utilizada nas principais métricas e visualizações é **Fonte de Fornecimento**, com duas classificações:
+
+* **Local**;
+* **Importado**.
+
+A variável **Faixa de Receita** continua disponível no dataset derivado e é utilizada em análises específicas, incluindo a tabela pivot do Bônus B03.
+
+---
+
+# ▶️ Como Executar
+
+## 1. Clone o repositório
 
 ```bash
 git clone URL_DO_REPOSITORIO
 ```
 
-### 2. Acesse a pasta
+## 2. Acesse a pasta
 
 ```bash
 cd NOME_DO_REPOSITORIO
 ```
 
-### 3. Instale as dependências
+## 3. Instale as dependências
 
 ```bash
 pip install pandas numpy matplotlib seaborn
 ```
 
-### 4. Verifique o dataset
+## 4. Verifique o dataset
 
 Certifique-se de que o arquivo:
 
@@ -460,72 +702,86 @@ Certifique-se de que o arquivo:
 wood_prices_dataset.csv
 ```
 
-está disponível no diretório esperado pelo notebook/script.
+esteja disponível no diretório esperado pelo notebook.
 
-### 5. Execute o notebook
+## 5. Execute o notebook
 
-O projeto pode ser executado utilizando **Jupyter Notebook**, **JupyterLab** ou **Google Colab**.
+O projeto pode ser executado em:
 
-Caso esteja utilizando Jupyter:
+* Jupyter Notebook;
+* JupyterLab;
+* Google Colab.
+
+Para Jupyter:
 
 ```bash
 jupyter notebook
 ```
 
-Em seguida, abra:
+Depois, abra:
 
 ```text
-Wood_SalesInsight_PY2.ipynb
+Wood_SalesInsight_PY(3).ipynb
 ```
 
 e execute as células em ordem.
 
 ---
 
-## 📁 Estrutura do projeto
+# 📁 Estrutura do Projeto
 
 ```text
-Wood-SalesInsight-PY/
+📦 Wood-SalesInsight-PY
 │
-├── Wood_SalesInsight_PY2.ipynb
-├── wood_prices_dataset.csv
-├── README.md
+├── 📄 Wood_SalesInsight_PY(3).ipynb
+├── 📄 wood_prices_dataset.csv
+├── 📄 README.md
+├── 📄 insights_e_desafio.md
 │
-└── resultados/
-    ├── *.csv
-    ├── *.json
-    └── *.png
+└── 📁 outputs/
+    ├── metricas_por_mes.csv
+    ├── segmentacao_clientes.csv
+    ├── estatisticas_gerais.json
+    ├── pivot_faixa_mes.csv
+    │
+    └── 📁 graficos/
+        ├── receita_por_mes.png
+        ├── receita_por_trimestre.png
+        ├── top_produtos.png
+        ├── quantidade_vs_receita.png
+        ├── painel_resumo.png
+        ├── projecao_receita.png
+        ├── boxplot_receita.png
+        └── heatmap_receita.png
 ```
-
-> A estrutura final dos arquivos poderá ser ajustada conforme a organização adotada no repositório.
 
 ---
 
-## 🎥 Vídeo de demonstração
+# 🎥 Vídeo de Demonstração
 
 Vídeo de demonstração do projeto:
 
 **[🔗 Assistir ao vídeo](LINK_DO_VIDEO)**
 
-> O vídeo apresenta o funcionamento do fluxo, decisões de implementação e oportunidades de melhoria identificadas durante o desenvolvimento.
+O vídeo apresenta o funcionamento do projeto, o fluxo de análise, as decisões de implementação e os resultados obtidos.
 
 ---
 
-## 📋 Trello
+# 📋 Trello
 
-O desenvolvimento do projeto foi organizado utilizando um quadro Trello para acompanhar as etapas e tarefas.
+O desenvolvimento do projeto foi organizado utilizando um quadro Trello.
 
 **[📌 Acessar o quadro Trello](https://trello.com/b/JHsh6g3A)**
 
 ---
 
-## 🔗 Repositório
+# 🔗 Repositório
 
 **[💻 Acessar o repositório no GitHub](https://github.com/carolinaruas-star/curso-analise-preditiva/tree/main/wood-insight-py)**
 
 ---
 
-## 🚀 Possíveis melhorias
+# 🚀 Possíveis Melhorias
 
 Como próximos passos, o projeto poderia evoluir para uma aplicação mais próxima de um ambiente de produção, incluindo:
 
@@ -533,23 +789,40 @@ Como próximos passos, o projeto poderia evoluir para uma aplicação mais próx
 * separação do notebook em módulos Python;
 * criação de testes automatizados;
 * validações mais robustas dos dados;
-* criação de um dashboard interativo;
+* utilização de uma fonte de câmbio atualizada;
+* criação de dashboard interativo;
 * implementação de novos indicadores de negócio;
 * utilização de dados reais de vendas;
-* disponibilização da análise por meio de uma aplicação web ou API.
+* integração com banco de dados;
+* disponibilização da análise por meio de aplicação web ou API;
+* evolução da projeção simples para modelos preditivos.
 
 ---
 
-## 👩‍💻 Autora
+# 👩‍💻 Autora
 
 **Ana Carolina Pereira Ruas**
 
-Mini-projeto desenvolvido no curso **Desenvolvimento de IA para Análise Preditiva — Módulo 01**.
+Mini-projeto desenvolvido no:
+
+**Desenvolvimento de IA para Análise Preditiva — Módulo 01**
 
 ---
 
-## 📌 Status
+# 📌 Status
 
-🟡 **Em desenvolvimento**
+🟢 **Projeto concluído / em finalização dos materiais de entrega**
 
-O projeto encontra-se em etapa de finalização, com o fluxo principal de análise implementado e os materiais de entrega sendo organizados.
+O fluxo principal de análise está implementado utilizando funções reutilizáveis e programação orientada a objetos.
+
+Também foram implementados os requisitos bônus:
+
+* ✅ B01 — Herança;
+* ✅ B02 — Projeção por média móvel;
+* ✅ B03 — Pivot Table;
+* ✅ B04 — Boxplot e Heatmap;
+* ✅ B05 — Percentis.
+
+---
+
+*Projeto desenvolvido para fins educacionais — Módulo 01 do Curso de IA para Análise Preditiva.* 🎓
