@@ -511,17 +511,17 @@ Vídeo de demonstração do projeto:
 
 ---
 
-## 📋 Kanban
+## 📋 Trello
 
-O desenvolvimento do projeto foi organizado utilizando um quadro Kanban para acompanhar as etapas e tarefas.
+O desenvolvimento do projeto foi organizado utilizando um quadro Trello para acompanhar as etapas e tarefas.
 
-**[📌 Acessar o quadro Kanban](LINK_DO_KANBAN)**
+**[📌 Acessar o quadro Trello](https://trello.com/b/JHsh6g3A)**
 
 ---
 
 ## 🔗 Repositório
 
-**[💻 Acessar o repositório no GitHub](LINK_DO_GITHUB)**
+**[💻 Acessar o repositório no GitHub](https://github.com/carolinaruas-star/curso-analise-preditiva/tree/main/wood-insight-py)**
 
 ---
 
