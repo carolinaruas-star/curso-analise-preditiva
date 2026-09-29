@@ -139,7 +139,7 @@ A avaliação considerou aspectos técnicos e de desenvolvimento, incluindo orga
 
 O projeto alcançou **Nível 3 nos critérios técnicos e de desenvolvimento**, com uma oportunidade de melhoria identificada na documentação do `README.md`: a inclusão do link do vídeo de demonstração junto às demais informações do projeto.
 
-📋 **[Confira a avaliação completa →](AVALIACAO.md)**
+📋 **[Confira a avaliação completa →](https://github.com/carolinaruas-star/curso-analise-preditiva/blob/main/wood-insight-py/AVALIACAO.md)**
 
 ---
 ## 📁 Estrutura do repositório
