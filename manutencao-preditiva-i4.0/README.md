@@ -1,5 +1,19 @@
 # 🏭 Pipeline de Análise Preditiva para Manutenção de Máquinas
 
+<!-- Badges do Projeto -->
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![Google Colab](https://img.shields.io/badge/Google_Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Imbalanced-Learn](https://img.shields.io/badge/Imbalanced--Learn_(SMOTE)-1F425F?style=for-the-badge&logo=python&logoColor=white)
+![License MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+
 ## 📋 Visão Geral do Projeto
 
 Este projeto implementa um **pipeline de Machine Learning ponta a ponta** para prever falhas mecânicas em equipamentos de um parque fabril monitorado por sensores. O objetivo é **evitar paradas não planejadas na produção** através da previsão antecipada de quebras.
@@ -251,9 +265,15 @@ main
 
 ---
 
-## 👥 Autor
+<div align="center">
 
-**Seu Nome** | Ciência de Dados & ML Engineering  
+## 👩‍💻 Autora
+
+**Ana Carolina Pereira Ruas**  
+Engenheira Florestal  
+**Foco em Dados, Machine Learning, IA Generativa, LLMs, Agentes e Cloud**  
+</div>
+
 Data de Conclusão: Julho de 2026  
 Disciplina: Desenvolvimento de IA para Análise Preditiva [T3]
 
@@ -304,3 +324,6 @@ Para dúvidas técnicas sobre o pipeline:
 
 **Última Atualização:** Julho 2026  
 **Status:** ✅ Completo e Validado
+
+---
+⭐ *Repositório desenvolvido como parte dos estudos do Curso Análise e Desenvolvimento de IA oferecido pelo SENAI/SC*
