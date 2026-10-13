@@ -21,6 +21,15 @@ Este projeto implementa um **pipeline de Machine Learning ponta a ponta** para p
 **Contexto:** Indústria 4.0 - Manutenção Preditiva com dados de 10.000 registros de operação industrial.
 
 ---
+## 🎥 Vídeo de Apresentação do Projeto
+
+Para conferir a explicação detalhada sobre o funcionamento do pipeline, metodologia aplicada e demonstração dos resultados obtidos, acesse o vídeo demonstrativo através do link abaixo:
+
+🔗 **[Clique aqui para assistir ao vídeo do projeto no Google Drive](https://drive.google.com/drive/folders/1atl-3xEVKKrwX8Tg4PxNLnFmYZveCqna?usp=sharing)**
+
+> **Nota para o Professor:** O link acima direciona para o arquivo de vídeo hospedado no Google Drive com as permissões de acesso liberadas para visualização.
+
+---
 
 ## 🎯 Problema Resolvido
 
